@@ -47,10 +47,21 @@ public class IMCControle implements Initializable {
     @FXML
     private void calcularIMC() {
         if(!peso.getText().isEmpty() && !altura.getText().isEmpty() && data.getValue()!=null){
-            double p = Double.parseDouble(peso.getText());
-            double a = Double.parseDouble(altura.getText());
+            double p, a;
+            try{
+                p = Double.parseDouble(peso.getText());
+                a = Double.parseDouble(altura.getText());
+            }catch(NumberFormatException e){
+                Util.gerarDialogo("Entrada Inválida", "Os campos peso e altura devem receber números", stack);
+                return;
+            }
+            
             DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            
+            
             String d = dateFormatter.format(data.getValue());
+            
+            
            
             imc = new IMC(p, a);
             DecimalFormat df = new DecimalFormat("0.##");
@@ -69,10 +80,16 @@ public class IMCControle implements Initializable {
     }
 
     @FXML
-    private void mudarTela() throws IOException {
-        Parent tela2 = FXMLLoader.load(getClass().getResource("/visao/Tela2.fxml"));
-        Scene scene = new Scene(tela2);
-        Principal.getStagePrincipal().setScene(scene);
+    private void mudarTela() {
+        Parent tela2;
+        try {
+            tela2 = FXMLLoader.load(getClass().getResource("/visao/Tela2.fxml"));
+        } catch (NullPointerException | IOException ex) {
+            return;
+        }
+            Scene scene = new Scene(tela2);
+            Principal.getStagePrincipal().setScene(scene);
+        
     }
 
 }
