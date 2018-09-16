@@ -23,24 +23,24 @@ import principal.Principal;
  */
 public class Tela2Controle implements Initializable {
 
-    enum Sexo{MASCULINO, FEMININO};
+    enum Sexo{MASCULINO, FEMININO}; 
     
     @FXML
-    JFXComboBox<Sexo> cbSexo;
-    /**
-     * Initializes the controller class.
-     */
+    JFXComboBox<Sexo> cbSexo; //Define o tipo de dados que irá alimentar a combo
+  
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        cbSexo.getItems().setAll(Sexo.values());
+        cbSexo.getItems().setAll(Sexo.values());//alimenta a combo
     }    
 
     @FXML
     private void voltar() throws IOException {
+        //verifica o item selecionado
+       if(cbSexo.getSelectionModel().getSelectedItem().equals(Sexo.FEMININO))
+                System.out.println("Feminino");
         Parent imc = FXMLLoader.load(getClass().getResource("/visao/IMC.fxml"));
         Scene scene = new Scene(imc);
         Principal.getStagePrincipal().setScene(scene);
-    
     }
     
 }
