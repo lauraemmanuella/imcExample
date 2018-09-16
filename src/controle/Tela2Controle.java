@@ -5,6 +5,7 @@
  */
 package controle;
 
+import com.jfoenix.controls.JFXComboBox;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -22,12 +23,16 @@ import principal.Principal;
  */
 public class Tela2Controle implements Initializable {
 
+    enum Sexo{MASCULINO, FEMININO};
+    
+    @FXML
+    JFXComboBox<Sexo> cbSexo;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        cbSexo.getItems().setAll(Sexo.values());
     }    
 
     @FXML
