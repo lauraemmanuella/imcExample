@@ -11,7 +11,7 @@ import javafx.stage.Stage;
  * @author Laura
  */
 public class Principal extends Application {
-    private static Stage stagePrincipal;
+    public static Stage stagePrincipal;
     
     @Override
     public void start(Stage stage) throws Exception {
@@ -29,10 +29,6 @@ public class Principal extends Application {
         
         stage.setScene(scene);
         stage.show();
-    }
-
-    public static Stage getStagePrincipal() {
-        return stagePrincipal;
     }
     
     /**

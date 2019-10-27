@@ -41,7 +41,7 @@ public class IMCControle implements Initializable {
     //Todos os eventos que tiverem que ocorrer quando a tela for aberta, devem ser colocados nesse método
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        data.setConverter(Util.converterData());
+        
     }
 
     @FXML
@@ -88,7 +88,7 @@ public class IMCControle implements Initializable {
             return;
         }
             Scene scene = new Scene(tela2);
-            Principal.getStagePrincipal().setScene(scene);
+            Principal.stagePrincipal.setScene(scene);
         
     }
 

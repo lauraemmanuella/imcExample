@@ -38,9 +38,11 @@ public class Tela2Controle implements Initializable {
         //verifica o item selecionado
        if(cbSexo.getSelectionModel().getSelectedItem().equals(Sexo.FEMININO))
                 System.out.println("Feminino");
+       
+       //seta nova cena no Stage principal 
         Parent imc = FXMLLoader.load(getClass().getResource("/visao/IMC.fxml"));
         Scene scene = new Scene(imc);
-        Principal.getStagePrincipal().setScene(scene);
+         Principal.stagePrincipal.setScene(scene);
     }
     
 }
